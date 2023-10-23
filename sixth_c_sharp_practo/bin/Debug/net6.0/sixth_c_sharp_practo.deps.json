@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "sixth_c_sharp_practo/1.0.0": {
+        "runtime": {
+          "sixth_c_sharp_practo.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "sixth_c_sharp_practo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

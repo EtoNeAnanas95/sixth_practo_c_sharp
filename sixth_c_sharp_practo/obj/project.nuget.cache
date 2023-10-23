@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Qm4K4q0rMA0wWpsQQeVl8s0ebDGRh1xqAS4mI/yHSsw3rmACCaB5lpbPWmWR6xyUeJod5PW2gmoU5VVOggkdig==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\1\\source\\repos\\sixth_c_sharp_practo\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\1\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
