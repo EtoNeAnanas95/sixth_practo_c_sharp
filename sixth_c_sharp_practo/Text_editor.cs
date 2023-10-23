@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +10,9 @@ namespace sixth_c_sharp_practo
 {
     public class TextEditor
     {
-
+        string[] text;
         private int x;
         private int y;
-        private string[] text;
         private string path;
 
         public TextEditor(string path)
@@ -24,13 +25,9 @@ namespace sixth_c_sharp_practo
         public void Display()
         {
             Console.Clear();
-            int consoleWidth = Console.WindowWidth;
-            int consoleHeight = Console.WindowHeight;
-
-            for (var i = 0; i < Math.Min(consoleHeight, text.Length); i++)
+            foreach (string line in text)
             {
-                Console.SetCursorPosition(0, i);
-                Console.WriteLine(text[i]);
+                Console.WriteLine(line);
             }
 
             Console.SetCursorPosition(x, y);
@@ -43,17 +40,29 @@ namespace sixth_c_sharp_practo
                 case ConsoleKey.LeftArrow:
                     if (x > 0)
                         x--;
+                    else if (y > 0)
+                    {
+                        x = text[y-1].Length;
+                        y--;
+                    }
                     break;
                 case ConsoleKey.RightArrow:
                     if (x < text[y].Length)
                         x++;
+                    else if (y < text.Length - 1)
+                    {
+                        x = 0;
+                        y++;
+                    }
                     break;
                 case ConsoleKey.UpArrow:
                     if (y > 0)
+                        x = text[y - 1].Length;
                         y--;
                     break;
                 case ConsoleKey.DownArrow:
-                    if (y < text.Length - 1)
+                    if (y <= text.Length)
+                        x = 0;
                         y++;
                     break;
             }
@@ -73,13 +82,37 @@ namespace sixth_c_sharp_practo
             }
         }
 
-        public void SaveText()
+        public void SaveText(Figure figure)
         {
-            using (var writer = new StreamWriter(path))
+            Console.Clear();
+            Console.WriteLine("Введите путь для сохранения:");
+            string new_path = Console.ReadLine();
+            File.WriteAllText(new_path, string.Empty);
+            using (var writer = new FileStream(path, FileMode.Truncate))
+            using (var streamWriter = new StreamWriter(writer))
             {
-                foreach (var line in text)
+                string extension = Path.GetExtension(path).ToLower();
+
+                figure.Name = text[0];
+                figure.Width = Convert.ToInt32(text[1]);
+                figure.Height = Convert.ToInt32(text[2]);
+
+
+                switch (extension)
                 {
-                    writer.WriteLine(line);
+                    case ".txt":
+                        streamWriter.WriteLine(figure.Name);
+                        streamWriter.WriteLine(figure.Width);
+                        streamWriter.WriteLine(figure.Height);
+                        
+                        break;
+                    case ".json":
+                        string json = JsonConvert.SerializeObject(figure);
+                        File.WriteAllText(new_path, json);
+                        break;
+                    case ".xml":
+
+                        break;
                 }
             }
         }

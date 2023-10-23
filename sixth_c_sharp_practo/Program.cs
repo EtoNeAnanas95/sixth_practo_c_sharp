@@ -35,8 +35,7 @@ namespace sixth_c_sharp_practo
         }
         public static void Main(string[] args)
         {
-            /*Figure figure = new Figure();
-            XmlSerializer xml = new XmlSerializer(typeof(Figure));
+            Figure figure = new Figure();
 
             string name = "Квадрат";
             int width = 10;
@@ -46,13 +45,6 @@ namespace sixth_c_sharp_practo
             figure.Height = height;
             figure.Width = width;
             
-            string desktop_parth = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\test.xml";
-            
-
-            using (FileStream fs  = new FileStream(desktop_parth, FileMode.OpenOrCreate))
-            {
-                xml.Serialize(fs, figure);
-            }*/
 
             while (true)
             {
@@ -66,8 +58,38 @@ namespace sixth_c_sharp_practo
                 switch (extension)
                 {
                     case ".txt":
-                        var editor = new TextEditor(path);
-                        ConsoleKeyInfo key;
+                        TextEditor editor = new TextEditor(path);
+                        do
+                        {
+                            editor.Display();
+                            ConsoleKeyInfo key = Console.ReadKey();
+
+                            switch (key.Key)
+                            {
+                                case ConsoleKey.Escape:
+                                    Environment.Exit(0);
+                                    break;
+                                case ConsoleKey.LeftArrow:
+                                case ConsoleKey.RightArrow:
+                                case ConsoleKey.UpArrow:
+                                case ConsoleKey.DownArrow:
+                                    editor.MoveCursor(key);
+                                    break;
+                                case ConsoleKey.F1:
+                                    editor.SaveText(figure);
+                                    break;
+                                case ConsoleKey.Enter:
+                                    break;
+                                default:
+                                    editor.EditText(key);
+                                    break;
+                            }
+
+                            editor.MoveCursor(key);
+
+                        } while (true);
+                        break;
+                        /*var editor = new TextEditor(path);
                         do
                         {
                             editor.Display();
@@ -84,17 +106,14 @@ namespace sixth_c_sharp_practo
                                     editor.MoveCursor(key);
                                     break;
                                 case ConsoleKey.F1:
-                                    editor.SaveText();
+                                    editor.SaveText(figure);
                                     break;
                                 case ConsoleKey.Enter:
                                     break;
                                 default:
                                     editor.EditText(key);
                                     break;
-                            }
-                        }
-                        while (key.Key != ConsoleKey.Escape);
-                        break;
+                            }*/
                     case ".json":
 
                         break;
