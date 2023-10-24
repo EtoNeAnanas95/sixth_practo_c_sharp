@@ -51,23 +51,34 @@ namespace sixth_c_sharp_practo
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Введите путь до файла (вместе с названием), который вы хотите открыть");
                 Console.WriteLine("---------------------------------------------------------------------");
+                Console.SetCursorPosition(0, 3);
+                Console.WriteLine("---------------------------------------------------------------------");
+                Console.ForegroundColor= ConsoleColor.White;
+                Console.Write("Для выхода нажмите ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ESCAPE");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("Для сохранения нажмите ");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write("F1");
                 Console.ResetColor();
+                Console.SetCursorPosition(0, 2);
                 string path = Console.ReadLine();
-                    //"C:\\Users\\1\\Desktop\\text.txt"
                 string extension = Path.GetExtension(path).ToLower();
                 switch (extension)
                 {
                     case ".txt":
                         TextEditor editor = new TextEditor(path);
+                        ConsoleKeyInfo key;
                         do
                         {
-                            editor.Display();
-                            ConsoleKeyInfo key = Console.ReadKey();
+                            editor.Display(extension);
+                            key = Console.ReadKey();
 
                             switch (key.Key)
                             {
                                 case ConsoleKey.Escape:
-                                    Environment.Exit(0);
+                                    Console.Clear();
                                     break;
                                 case ConsoleKey.LeftArrow:
                                 case ConsoleKey.RightArrow:
@@ -87,33 +98,8 @@ namespace sixth_c_sharp_practo
 
                             editor.MoveCursor(key);
 
-                        } while (true);
+                        } while (key.Key != ConsoleKey.Escape);
                         break;
-                        /*var editor = new TextEditor(path);
-                        do
-                        {
-                            editor.Display();
-                            key = Console.ReadKey();
-                            switch (key.Key)
-                            {
-                                case ConsoleKey.Escape:
-                                    Environment.Exit(0);
-                                    break;
-                                case ConsoleKey.LeftArrow:
-                                case ConsoleKey.RightArrow:
-                                case ConsoleKey.UpArrow:
-                                case ConsoleKey.DownArrow:
-                                    editor.MoveCursor(key);
-                                    break;
-                                case ConsoleKey.F1:
-                                    editor.SaveText(figure);
-                                    break;
-                                case ConsoleKey.Enter:
-                                    break;
-                                default:
-                                    editor.EditText(key);
-                                    break;
-                            }*/
                     case ".json":
 
                         break;
