@@ -55,19 +55,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\1\\.nuget\\packages\\": {}
+    "C:\\Users\\Eto_Ne_Ananas95\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1\\source\\repos\\sixth_c_sharp_practo\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
+      "projectUniqueName": "C:\\Users\\Eto_Ne_Ananas95\\Source\\Repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
       "projectName": "sixth_c_sharp_practo",
-      "projectPath": "C:\\Users\\1\\source\\repos\\sixth_c_sharp_practo\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
-      "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\1\\source\\repos\\sixth_c_sharp_practo\\sixth_c_sharp_practo\\obj\\",
+      "projectPath": "C:\\Users\\Eto_Ne_Ananas95\\Source\\Repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
+      "packagesPath": "C:\\Users\\Eto_Ne_Ananas95\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Eto_Ne_Ananas95\\Source\\Repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Eto_Ne_Ananas95\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -114,7 +114,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
