@@ -33,11 +33,11 @@ namespace sixth_c_sharp_practo
             Console.ResetColor();
             Console.SetCursorPosition(0, 2);
             string path = Console.ReadLine();
-            if (Directory.Exists(path))
+
+            if (!File.Exists(path))
             {
                 Console.SetCursorPosition(0, 2);
-                int len = path.Length;
-                for (int i = 0; i < len; i++) Console.Write(" ");
+                for (int i = 0; i < path.Length; i++) Console.Write(" ");
                 Console.SetCursorPosition(0, 2);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Путь не существует!");

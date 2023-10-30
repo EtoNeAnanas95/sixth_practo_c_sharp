@@ -127,34 +127,27 @@ namespace sixth_c_sharp_practo
             string save_path = Console.ReadLine();
             string extension = Path.GetExtension(save_path).ToLower();
 
-            switch (extension)
+            using FileStream fs = new FileStream(save_path, FileMode.OpenOrCreate);
             {
-                case ".txt":
-                    text[0] = figure.Name;
-                    text[1] = figure.Width.ToString();
-                    text[2] = figure.Height.ToString();
-                    using (StreamWriter outputFile = new StreamWriter(save_path))
-                    {
-                        foreach (string line in text)
-                            outputFile.WriteLine(line);
-                    }
-                    break;
-                case ".json":
-                    using (FileStream fs = new FileStream(save_path, FileMode.OpenOrCreate))
-                    {
+                switch (extension)
+                {
+                    case ".txt":
+                        using (StreamWriter outputFile = new StreamWriter(save_path))
+                        {
+                            foreach (string line in text)
+                                outputFile.WriteLine(line);
+                        }
+                        break;
+                    case ".json":
                         string json = JsonConvert.SerializeObject(figure);
-                        File.WriteAllText(save_path, json);
-                    }
-                    break;
-                case ".xml":
-                    XmlSerializer serializer = new XmlSerializer(typeof(Figure));
-                    using (FileStream fs = new FileStream(save_path, FileMode.OpenOrCreate))
-                    {
-                        serializer.Serialize(fs, figure);
-                    }
-                    break;
+                        fs.Write(Encoding.UTF8.GetBytes(json));
+                        break;
+                    case ".xml":
+                        XmlSerializer xml = new XmlSerializer(typeof(Figure));
+                        xml.Serialize(fs, figure);
+                        break;
+                }
             }
-            
         }
     }
 }

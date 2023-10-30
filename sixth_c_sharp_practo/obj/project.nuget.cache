@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "PztUjPOpTKbCrXkBXu3mYTQPYFdKDtR4BldDpCE3w31nobKlRf8tF0KvLvpEr/cNVFV++B4q+6bm8M5bwp1ZAA==",
+  "dgSpecHash": "lrHNzzFkMEALs7HhM0hhzoXdnspd8sqIlmpkIoMEYpfwFpFAagClSetfD1HggspkHobYzxFgtCF9T+eztBirRA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eto_Ne_Ananas95\\source\\repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
+  "projectFilePath": "C:\\Users\\1\\Source\\Repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Eto_Ne_Ananas95\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\1\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
