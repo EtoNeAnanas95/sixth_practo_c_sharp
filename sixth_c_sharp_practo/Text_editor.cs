@@ -40,13 +40,34 @@ namespace sixth_c_sharp_practo
                         Console.SetCursorPosition(0, 12);
                         Console.ResetColor();
                         Environment.Exit(1);
-                        Environment.Exit(0);
                     }
                     else
                     {
-                        this.figure.Name = this.text[0];
-                        this.figure.Width = Convert.ToInt32(this.text[1]);
-                        this.figure.Height = Convert.ToInt32(this.text[2]);
+                        try
+                        {
+                            this.figure.Name = this.text[0];
+                            this.figure.Width = Convert.ToInt32(this.text[1]);
+                            this.figure.Height = Convert.ToInt32(this.text[2]);
+                        }catch (IndexOutOfRangeException) 
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.SetCursorPosition(0, 1);
+                            Console.WriteLine("---------------------------------------------------------------------");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Текстовый файл не соответсвует формату фигуры");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.SetCursorPosition(0, 3);
+                            Console.WriteLine("---------------------------------------------------------------------");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.SetCursorPosition(0, 5);
+                            Console.WriteLine("Нажмите любую кнопку чтобы выйти");
+                            ConsoleKey key = Console.ReadKey().Key;
+                            Console.SetCursorPosition(0, 12);
+                            Console.ResetColor();
+                            Environment.Exit(1);
+                        }
+
                     }
                     break;
                 case ".json":
@@ -98,7 +119,8 @@ namespace sixth_c_sharp_practo
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
-                case 1:   Console.Clear();
+                case 1:
+                    Console.Clear();
                     Console.WriteLine("Введите новое имя: ");
                     this.figure.Name = Console.ReadLine();
                     break;
@@ -127,26 +149,29 @@ namespace sixth_c_sharp_practo
             string save_path = Console.ReadLine();
             string extension = Path.GetExtension(save_path).ToLower();
 
-            using FileStream fs = new FileStream(save_path, FileMode.OpenOrCreate);
+
+
+            switch (extension)
             {
-                switch (extension)
-                {
-                    case ".txt":
-                        using (StreamWriter outputFile = new StreamWriter(save_path))
-                        {
-                            foreach (string line in text)
-                                outputFile.WriteLine(line);
-                        }
-                        break;
-                    case ".json":
-                        string json = JsonConvert.SerializeObject(figure);
-                        fs.Write(Encoding.UTF8.GetBytes(json));
-                        break;
-                    case ".xml":
-                        XmlSerializer xml = new XmlSerializer(typeof(Figure));
+                case ".txt":
+                    using (StreamWriter outputFile = new StreamWriter(save_path))
+                    {
+                        foreach (string line in text)
+                            outputFile.WriteLine(line);
+                    }
+                    break;
+                case ".json":
+                    string json = JsonConvert.SerializeObject(figure);
+                    File.WriteAllText(save_path, json);
+                    break;
+                case ".xml":
+                    XmlSerializer xml = new XmlSerializer(typeof(Figure));
+                    using (FileStream fs = new FileStream(save_path, FileMode.OpenOrCreate))
+                    {
                         xml.Serialize(fs, figure);
-                        break;
-                }
+                    }
+                    break;
+
             }
         }
     }

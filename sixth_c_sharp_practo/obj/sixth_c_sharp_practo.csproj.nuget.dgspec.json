@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1\\Source\\Repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj": {}
+    "C:\\Users\\1\\source\\repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1\\Source\\Repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj": {
+    "C:\\Users\\1\\source\\repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1\\Source\\Repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
+        "projectUniqueName": "C:\\Users\\1\\source\\repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
         "projectName": "sixth_c_sharp_practo",
-        "projectPath": "C:\\Users\\1\\Source\\Repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
+        "projectPath": "C:\\Users\\1\\source\\repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\sixth_c_sharp_practo.csproj",
         "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1\\Source\\Repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\obj\\",
+        "outputPath": "C:\\Users\\1\\source\\repos\\sixth_practo_c_sharp\\sixth_c_sharp_practo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
